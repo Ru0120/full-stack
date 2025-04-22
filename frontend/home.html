@@ -1,12 +1,114 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Home | Movie Site</title>
+  </head>
+  <body>
+    <h1 style="text-align: center">Home Page</h1>
+    <h2>Movie List</h2>
+  </body>
+
+</html> -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Netflix</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: #141414;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+
+      header {
+        background-color: #000;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 24px;
+        color: #e50914;
+        font-weight: bold;
+      }
+
+      nav a {
+        color: white;
+        margin-left: 20px;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      .hero {
+        background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/81c2b232-76cb-4b17-ae34-1478e2d3eb7d/c1b9d66f-cf0e-4cfa-8ff9-0ddf5b1c9147/US-en-20240408-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        max-width: 700px;
+      }
+
+      .section {
+        padding: 30px;
+      }
+
+      .movies {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .movie {
+        background-color: #333;
+        width: 150px;
+        height: 225px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 14px;
+        padding: 10px;
+      }
+    </style>
   </head>
   <body>
-    <h1 class="center-text">Welcome to Home Page</h1>
+    <header>
+      <div class="logo">NETFLIX</div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Edits</a>
+        <a href="#">Add movie</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Unlimited movies and TV shows</h1>
+    </section>
+
+    <section class="section">
+      <h2>Popular on Netflix</h2>
+      <div class="movies">
+        <div class="movie">Movie 1</div>
+        <div class="movie">Movie 2</div>
+        <div class="movie">Movie 3</div>
+        <div class="movie">Movie 4</div>
+        <div class="movie">Movie 5</div>
+      </div>
+    </section>
   </body>
 </html>
