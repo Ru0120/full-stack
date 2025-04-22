@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   
+    <head>
+        <title>Login form</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+<body>
+<div class="form-container">
+    <h2>Login</h2>
+  <form  id="login-form">
+  <div class="field">
+     <div class="fas fa-envelope"></div>
+     <input type="email" name="email" placeholder="Enter your email" required>
+  </div>
+  <div class="field">
+     <div class="fas fa-lock"></div>
+     <input type="password" name="password" placeholder="Enter your password" required>
+  </div>
+  <button type="submit" class="submit-btm">LOGIN</button>
+  <br>
+  <p>  
+     Dot have an account ?
+     <a href="/signup">Signup </a></p>
+   
+    </form>
+   </div>
+</div>
+  
+  <script>
+    
+    const form = document.getElementById("login-form");
+
+    form.addEventListener("submit", async e => {
+      e.preventDefault();
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+
+      try { 
+        const response = await fetch(`http://localhost:3000/login`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ email, password })
+        }).catch(() => {
+          window.alert("Email password buruu bn!");
+        });
+
+        const data = await response.text();
+
+        if (data.status === "failed") {
+          return window.alert("Nuuts ug eswel email buruu bn");
+        } else {
+          localStorage.setItem("auth-token", data.token);
+
+          window.location.replace("/home");
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    
+  </script>
+</body></html>

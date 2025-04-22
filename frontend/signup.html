@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>Signup</h2>
+        <form id="form" action="/signup" method="POST">
+            <div class="field">
+                <div class="fas fa-envelope"></div>
+                <input type="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="field">
+                <div class="fas fa-lock"></div>
+                <input type="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="submit-btm">SignUp</button>
+        </form>
+    </div>
+    </div>
+
+
+    <script>
+
+        const formElement = document.getElementById('form');
+
+        formElement.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(formElement);
+            const data = Object.fromEntries(formData.entries());
+
+            await fetch('http://localhost:3000/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    return response.json()
+                })
+                .then(data => {
+
+                    if (data.success) {
+                        alert('Signup successful!');
+                        window.location.href = '/login';
+                    } else {
+                        alert('Signup failed: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+        })
+
+    </script>
+
+</body>
+
+</html>
